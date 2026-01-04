@@ -219,7 +219,8 @@ def main(debug: bool = False, filter_quads: bool = False, clear: bool = False):
 
             # Generate fake icon until proper icons are made
             shutil.copy(
-                hytale_root / "Icons/ItemsGenerated/Furniture_Village_Statue.png",
+                pack_root
+                / f"Common/Icons/ItemsGenerated/Statue_Placeholder_{style_config.name}.png",
                 pack_root / f"Common/Icons/ItemsGenerated/Statue/{name}.png",
             )
 

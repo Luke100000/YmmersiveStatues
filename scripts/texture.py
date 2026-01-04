@@ -10,13 +10,6 @@ from PIL import Image
 TILE_BLEND_MASK = Path(__file__).parent / "assets/mask.png"
 
 
-def block_median(arr):
-    h, w, c = arr.shape
-    arr = arr[: h // 2 * 2, : w // 2 * 2]
-    arr = arr.reshape(h // 2, 2, w // 2, 2, c)
-    return np.median(arr, axis=(1, 3)).astype(np.uint8)
-
-
 def tile_texture(source: np.ndarray, size: tuple[int, int]) -> np.ndarray:
     width, height = size
     repeat_y = math.ceil(height / source.shape[0])
@@ -112,22 +105,24 @@ def transform(face, size):
 def generate_image(
     model: dict, config: ModelConfig, style: StyleConfig, asset_root: Path
 ) -> Image.Image:
-    image = Image.open(asset_root / config.texture).convert("RGBA")
-
     # Downscale
-    image = np.asarray(image)
-    h, w = image.shape[0] // 2, image.shape[1] // 2
-    resized = np.zeros((h, w, 4))
+    image = np.asarray(Image.open(asset_root / config.texture).convert("RGBA"))
+    image = image[1::2, 1::2, :]
+    h, w = image.shape[0], image.shape[1]
 
-    # Balance details and overall shading
-    lightness = np.zeros((h, w), dtype=np.float32)
+    # Calculate lightness
+    lightness = (
+        0.2126 * image[..., 0] + 0.7152 * image[..., 1] + 0.0722 * image[..., 2]
+    ) / 255.0
+
+    # Quad-local contrast
     local_contrast = np.zeros((h, w), dtype=np.float32)
 
     # Prepare background
     texture = Image.open(Path(__file__).parent / "assets" / style.texture).convert(
         "RGBA"
     )
-    background = np.zeros((h, w, 4), dtype=np.uint8)
+    base_color = np.zeros((h, w, 4), dtype=np.uint8)
 
     random.seed(42)
 
@@ -174,20 +169,23 @@ def generate_image(
                         fragment_rgb = fragment[:, :, :3]
 
                         if mode == "base":
-                            background[y0:y1, x0:x1, :3] = fragment_rgb
+                            base_color[y0:y1, x0:x1, :3] = fragment_rgb
+                            base_color[y0:y1, x0:x1, 3] = (
+                                fragment[:, :, 3] > 100
+                            ) * 255
                         elif mode == "add":
-                            background[y0:y1, x0:x1, :3] += fragment_rgb * opacity
+                            base_color[y0:y1, x0:x1, :3] += fragment_rgb * opacity
                         elif mode == "multiply":
-                            background[y0:y1, x0:x1, :3] = np.clip(
-                                background[y0:y1, x0:x1, :3]
+                            base_color[y0:y1, x0:x1, :3] = np.clip(
+                                base_color[y0:y1, x0:x1, :3]
                                 * (fragment_rgb / 255.0 * opacity + (1.0 - opacity)),
                                 0,
                                 255,
                             ).astype(np.uint8)
                         elif mode == "blend":
                             alpha = (fragment[:, :, 3:4] / 255.0) * opacity
-                            background[y0:y1, x0:x1, :3] = np.clip(
-                                background[y0:y1, x0:x1, :3] * (1.0 - alpha)
+                            base_color[y0:y1, x0:x1, :3] = np.clip(
+                                base_color[y0:y1, x0:x1, :3] * (1.0 - alpha)
                                 + fragment_rgb * alpha,
                                 0,
                                 255,
@@ -195,20 +193,6 @@ def generate_image(
                         else:
                             raise ValueError(f"Unknown blend mode: {mode}")
                     else:
-                        # Downscale the quad
-                        original = image[y0 * 2 : y1 * 2, x0 * 2 : x1 * 2, :]
-                        original = block_median(original)
-
-                        # Color
-                        resized[y0:y1, x0:x1] = original
-
-                        # Calculate lightness
-                        lightness[y0:y1, x0:x1] = (
-                            0.2126 * original[..., 0]
-                            + 0.7152 * original[..., 1]
-                            + 0.0722 * original[..., 2]
-                        ) / 255.0
-
                         # Calculate local contrast
                         local_contrast[y0:y1, x0:x1] = get_local_contrast(
                             lightness[y0:y1, x0:x1],
@@ -244,13 +228,11 @@ def generate_image(
     lightness += style.brightness
 
     # Shade
-    x = background[:, :, :3].astype(np.float32) / 255.0
+    x = base_color[:, :, :3].astype(np.float32) / 255.0
     eps = 1e-6
     log_x = np.log(x + eps)
     gain = lightness * style.strength
     lit = np.exp(log_x + gain[..., None])
-    background[:, :, :3] = np.clip(lit * 255, 0, 255).astype(np.uint8)
+    base_color[:, :, :3] = np.clip(lit * 255, 0, 255).astype(np.uint8)
 
-    background[:, :, 3] = (resized[:, :, 3] > 100) * 255
-
-    return Image.fromarray(background)
+    return Image.fromarray(base_color)
