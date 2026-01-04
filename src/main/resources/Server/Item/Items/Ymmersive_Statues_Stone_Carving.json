@@ -1,0 +1,136 @@
+{
+  "TranslationProperties": {
+    "Name": "items.Ymmersive_Statues_Stone_Carving.name",
+    "Description": "items.Ymmersive_Statues_Stone_Carving.description"
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "Quantity": 2,
+        "ResourceTypeId": "Wood_Trunk"
+      },
+      {
+        "Quantity": 5,
+        "ResourceTypeId": "Rock"
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Categories": [
+          "Workbench_Crafting"
+        ],
+        "Id": "Workbench"
+      }
+    ]
+  },
+  "Icon": "Icons/ItemsGenerated/Ymmersive_Statues_Stone_Carving.png",
+  "Categories": [
+    "Furniture.Benches"
+  ],
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Cutout",
+    "CustomModel": "Blocks/Ymmersive_Statues_Stone_Carving.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/Ymmersive_Statues_Stone_Carving.png",
+        "Weight": 10
+      }
+    ],
+    "HitboxType": "Bench_Workbench",
+    "VariantRotation": "NESW",
+    "Bench": {
+      "Type": "Crafting",
+      "Categories": [
+        {
+          "Id": "Gold",
+          "Icon": "Icons/CraftingCategories/Workbench/WeaponsCrude.png",
+          "Name": "ui.benchCategories.Stone_Carving.gold"
+        },
+        {
+          "Id": "Shale",
+          "Icon": "Icons/CraftingCategories/Workbench/WeaponsCrude.png",
+          "Name": "ui.benchCategories.Stone_Carving.shale"
+        },
+        {
+          "Id": "Marble",
+          "Icon": "Icons/CraftingCategories/Workbench/WeaponsCrude.png",
+          "Name": "ui.benchCategories.Stone_Carving.marble"
+        },
+        {
+          "Id": "Mossy",
+          "Icon": "Icons/CraftingCategories/Workbench/WeaponsCrude.png",
+          "Name": "ui.benchCategories.Stone_Carving.mossy"
+        },
+        {
+          "Id": "Limestone",
+          "Icon": "Icons/CraftingCategories/Workbench/WeaponsCrude.png",
+          "Name": "ui.benchCategories.Stone_Carving.limestone"
+        },
+        {
+          "Id": "Poisoned",
+          "Icon": "Icons/CraftingCategories/Workbench/WeaponsCrude.png",
+          "Name": "ui.benchCategories.Stone_Carving.poisoned"
+        },
+        {
+          "Id": "Wood",
+          "Icon": "Icons/CraftingCategories/Workbench/WeaponsCrude.png",
+          "Name": "ui.benchCategories.Stone_Carving.wood"
+        },
+        {
+          "Id": "Ice",
+          "Icon": "Icons/CraftingCategories/Workbench/WeaponsCrude.png",
+          "Name": "ui.benchCategories.Stone_Carving.ice"
+        }
+      ],
+      "LocalOpenSoundEventId": "SFX_Workbench_Open",
+      "LocalCloseSoundEventId": "SFX_Workbench_Close",
+      "CompletedSoundEventId": "SFX_Workbench_Craft",
+      "FailedSoundEventId": "SFX_Furnace_Bench_Processing_Failed",
+      "BenchUpgradeSoundEventId": "SFX_Workbench_Upgrade_Start_Default",
+      "BenchUpgradeCompletedSoundEventId": "SFX_Workbench_Upgrade_Complete_Default",
+      "Id": "Stone_Carving",
+      "TierLevels": []
+    },
+    "State": {
+      "Id": "crafting"
+    },
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "BlockParticleSetId": "Wood",
+    "ParticleColor": "#6e4a2f",
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "BlockSoundSetId": "Wood"
+  },
+  "PlayerAnimationsId": "Block",
+  "IconProperties": {
+    "Scale": 0.42,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      12.9,
+      -11.7
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Bench"
+    ]
+  },
+  "MaxStack": 1,
+  "ItemSoundSetId": "ISS_Blocks_Wood"
+}

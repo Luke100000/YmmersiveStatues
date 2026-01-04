@@ -1,0 +1,215 @@
+{
+  "styles": [
+    {
+      "name": "Ice",
+      "texture": "base/ice.png",
+      "overlays": [
+      ],
+      "strength": 0.125,
+      "adjustment": 0.75,
+      "contrast": 3.0,
+      "brightness": -1.0,
+      "resource": "Rock_Ice",
+      "resource_type": "ItemId",
+      "resource_factor": 8.0,
+      "socket_shape": "wood",
+      "socket_material": "base/ice.png",
+      "socket_contrast": 0.2
+    },
+    {
+      "name": "Gold",
+      "texture": "base/gold.png",
+      "overlays": [
+      ],
+      "strength": 0.075,
+      "adjustment": 0.8,
+      "contrast": 6.0,
+      "softness": 2.0,
+      "resource": "Ingredient_Bar_Gold",
+      "resource_type": "ItemId",
+      "resource_factor": 2.0,
+      "socket_shape": "step",
+      "socket_material": "base/gold.png",
+      "socket_contrast": 0.15
+    },
+    {
+      "name": "Limestone",
+      "texture": "base/limestone.png",
+      "strength": 0.175,
+      "overlays": [
+        {
+          "texture": "overlays/small_cracks.png",
+          "blendMode": "multiply",
+          "opacity": 0.05
+        },
+        {
+          "texture": "overlays/small_cracks.png",
+          "blendMode": "multiply",
+          "opacity": 0.05
+        },
+        {
+          "texture": "overlays/small_cracks.png",
+          "blendMode": "multiply",
+          "opacity": 0.05
+        },
+        {
+          "texture": "overlays/small_cracks.png",
+          "blendMode": "multiply",
+          "opacity": 0.05
+        },
+        {
+          "texture": "overlays/medium_cracks.png",
+          "blendMode": "multiply",
+          "opacity": 0.05
+        },
+        {
+          "texture": "overlays/medium_cracks.png",
+          "blendMode": "multiply",
+          "opacity": 0.05
+        },
+        {
+          "texture": "overlays/medium_cracks.png",
+          "blendMode": "multiply",
+          "opacity": 0.05
+        },
+        {
+          "texture": "overlays/medium_cracks.png",
+          "blendMode": "multiply",
+          "opacity": 0.05
+        }
+      ],
+      "resource": "Rock_Lime_Cobble",
+      "resource_type": "ItemId",
+      "resource_factor": 8.0,
+      "socket_material": "base/limestone.png"
+    },
+    {
+      "name": "Marble",
+      "texture": "base/marble.png",
+      "overlays": [
+      ],
+      "strength": 0.075,
+      "adjustment": 0.8,
+      "contrast": 5.0,
+      "brightness": -0.4,
+      "resource": "Rock_Marble",
+      "resource_type": "ItemId",
+      "resource_factor": 8.0,
+      "socket_shape": "wood",
+      "socket_material": "base/marble.png",
+      "socket_brightness": -0.05,
+      "socket_contrast": 0.125
+    },
+    {
+      "name": "Shale",
+      "texture": "base/shale.png",
+      "overlays": [],
+      "strength": 0.2,
+      "resource": "Rock_Shale",
+      "resource_type": "ItemId",
+      "resource_factor": 8.0,
+      "socket_shape": "stone",
+      "socket_material": "base/shale.png",
+      "socket_brightness": -0.125
+    },
+    {
+      "name": "Mossy",
+      "texture": "base/mossy.png",
+      "brightness": 0.25,
+      "strength": 0.25,
+      "overlays": [
+        {
+          "texture": "overlays/small_cracks.png",
+          "blendMode": "multiply",
+          "opacity": 0.1
+        },
+        {
+          "texture": "overlays/small_cracks.png",
+          "blendMode": "multiply",
+          "opacity": 0.1
+        },
+        {
+          "texture": "overlays/medium_cracks.png",
+          "blendMode": "multiply",
+          "opacity": 0.1
+        },
+        {
+          "texture": "overlays/medium_cracks.png",
+          "blendMode": "multiply",
+          "opacity": 0.1
+        },
+        {
+          "texture": "overlays/roots.png",
+          "blendMode": "blend"
+        }
+      ],
+      "resource": "Rock_Stone_Mossy",
+      "resource_type": "ItemId",
+      "resource_factor": 8.0,
+      "socket_shape": "stone",
+      "socket_material": "base/mossy.png"
+    },
+    {
+      "name": "Poisoned",
+      "texture": "base/poisoned.png",
+      "overlays": [],
+      "strength": 0.3,
+      "resource": "Rock_Volcanic_Cracked_Poisoned",
+      "resource_type": "ItemId",
+      "resource_factor": 8.0,
+      "socket_shape": "stone",
+      "socket_material": "base/poisoned.png",
+      "socket_brightness": -0.1,
+      "socket_contrast": 0.3
+    },
+    {
+      "name": "Wood",
+      "texture": "base/wood.png",
+      "overlays": [],
+      "strength": 0.15,
+      "adjustment": 0.75,
+      "contrast": 2.0,
+      "resource": "Wood_All",
+      "resource_type": "ResourceTypeId",
+      "resource_factor": 8.0,
+      "socket_shape": "wood",
+      "socket_material": "base/wood.png"
+    }
+  ],
+  "sockets": [
+    {
+      "name": "1x1",
+      "model_offset_x": 0,
+      "model_offset_y": 5,
+      "model_offset_z": 0
+    },
+    {
+      "name": "1.5x1.5",
+      "model_offset_x": -16,
+      "model_offset_y": 6,
+      "model_offset_z": -16
+    },
+    {
+      "name": "2x2",
+      "model_offset_x": -16,
+      "model_offset_y": 6,
+      "model_offset_z": -16
+    },
+    {
+      "name": "3x3",
+      "model_offset_x": -32,
+      "model_offset_y": 6,
+      "model_offset_z": -32
+    }
+  ],
+  "models": [
+    {
+      "name": "Bison",
+      "model": "NPC/Livestock/Bison/Models/Model.blockymodel",
+      "texture": "NPC/Livestock/Bison/Models/Texture.png",
+      "animation": "NPC/Livestock/Bison/Animations/Default/Idle.blockyanim",
+      "time": 0.05,
+      "socket": "2x2"
+    }
+  ]
+}
