@@ -9,7 +9,7 @@ from PIL import Image, ImageEnhance
 from tqdm.auto import tqdm
 
 from animations import load_animation, apply_animation
-from bounding_box import generate_hitbox, append_box_nodes, get_volume
+from bounding_box import generate_hitbox, append_box_nodes, get_volume, get_bounding_box
 from config import load_config
 from merge import merge_models
 from texture import generate_image, resize_tiled_texture
@@ -200,27 +200,45 @@ def main(debug: bool = False, filter_quads: bool = False, clear: bool = False):
             hitbox_output_path.parent.mkdir(parents=True, exist_ok=True)
             hitbox_output_path.write_text(json.dumps(boxes, indent=2), encoding="utf-8")
 
+            # Generate offset
+            bounding_box = get_bounding_box(boxes)
+            size_x = max(abs(bounding_box["Max"]["X"]), abs(bounding_box["Min"]["X"]))
+            size_y = bounding_box["Max"]["Y"]
+            size_z = max(abs(bounding_box["Max"]["Z"]), abs(bounding_box["Min"]["Z"]))
+
+            diagonal = math.sqrt(size_x**2 + size_y**2 + size_z**2)
+            scale = 0.975 / diagonal
+
+            if socket_config is None:
+                offset_x = 8
+            else:
+                offset_x = (
+                    socket_config.model_offset_x**2 + socket_config.model_offset_z**2
+                ) ** 0.5 - 2
+
+            offset_y = bounding_box["Max"]["Y"] * 16 - offset_x * 0.2
+
             # Generate item json
             item_output_path = pack_root / f"Server/Item/Items/Statue/{name}.json"
             item_output_path.parent.mkdir(parents=True, exist_ok=True)
             template = (
                 (assets_root / "item.json")
                 .read_text(encoding="utf-8")
-                .replace(
-                    '"{x}"', str(-socket_config.model_offset_x if socket_config else 0)
-                )
+                .replace('"{x}"', str(offset_x))
+                .replace('"{y}"', str(-offset_y))
+                .replace('"{scale}"', str(scale))
                 .replace("{name}", name)
                 .replace("{material}", style_config.name)
                 .replace("{resource}", style_config.resource)
                 .replace("{resourceType}", style_config.resource_type)
-                .replace("'{cost}'", str(cost))
+                .replace('"{cost}"', str(cost))
             )
             item_output_path.write_text(template, encoding="utf-8")
 
             # Generate fake icon until proper icons are made
             shutil.copy(
                 pack_root
-                / f"Common/Icons/ItemsGenerated/Statue_Placeholder_{style_config.name}.png",
+                / f"Common/Icons/CraftingCategories/Ymmersive_Statues_{style_config.name}.png",
                 pack_root / f"Common/Icons/ItemsGenerated/Statue/{name}.png",
             )
 

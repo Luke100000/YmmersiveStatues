@@ -142,9 +142,9 @@ def generate_image(
                     del shape["shadingMode"]
 
                 if config.z_fights:
-                    shape["stretch"]["x"] += random.random() * 0.001
-                    shape["stretch"]["y"] += random.random() * 0.001
-                    shape["stretch"]["z"] += random.random() * 0.001
+                    shape["stretch"]["x"] += random.random() * 0.005
+                    shape["stretch"]["y"] += random.random() * 0.005
+                    shape["stretch"]["z"] += random.random() * 0.005
 
                 size = shape["settings"]["size"]
                 for side, face in shape["textureLayout"].items():

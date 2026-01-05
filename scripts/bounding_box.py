@@ -210,3 +210,17 @@ def append_box_nodes(model: dict, boxes: list[dict]) -> None:
             "children": [],
         }
         nodes.append(node)
+
+
+def get_bounding_box(hitbox: dict) -> dict:
+    min_x = min(box["Min"]["X"] for box in hitbox["Boxes"])
+    min_y = min(box["Min"]["Y"] for box in hitbox["Boxes"])
+    min_z = min(box["Min"]["Z"] for box in hitbox["Boxes"])
+    max_x = max(box["Max"]["X"] for box in hitbox["Boxes"])
+    max_y = max(box["Max"]["Y"] for box in hitbox["Boxes"])
+    max_z = max(box["Max"]["Z"] for box in hitbox["Boxes"])
+
+    return {
+        "Min": {"X": min_x, "Y": min_y, "Z": min_z},
+        "Max": {"X": max_x, "Y": max_y, "Z": max_z},
+    }
