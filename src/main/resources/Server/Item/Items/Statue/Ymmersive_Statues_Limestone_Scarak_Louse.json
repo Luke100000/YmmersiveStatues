@@ -1,0 +1,83 @@
+{
+  "TranslationProperties": {
+    "Name": "items.Ymmersive_Statues_Limestone_Scarak_Louse.name",
+    "Description": "items.{style}.description"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Structural"
+  ],
+  "Set": "Furniture_Statue",
+  "IconProperties": {
+    "Scale": 0.8185700785717186,
+    "Rotation": [
+      22,
+      43,
+      18
+    ],
+    "Translation": [
+      20.627416997969522,
+      -9.05247962012717
+    ]
+  },
+  "BlockType": {
+    "BlockParticleSetId": "Stone",
+    "BlockSoundSetId": "Stone",
+    "CustomModel": "Blocks/Furniture/Ymmersive_Statues_Limestone_Scarak_Louse.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/Furniture/Ymmersive_Statues_Limestone_Scarak_Louse.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "InteractionHint": "items.Ymmersive_Statues_Limestone_Scarak_Louse.name",
+    "Flags": {
+      "IsUsable": true
+    },
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "HitboxType": "Ymmersive_Statues_Limestone_Scarak_Louse",
+    "Material": "Solid",
+    "Opacity": "Cutout",
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "VariantRotation": "NESW",
+    "ParticleColor": "#2e3742"
+  },
+  "Icon": "Icons/ItemsGenerated/Statue/Ymmersive_Statues_Limestone_Scarak_Louse.png",
+  "Tags": {
+    "Type": [
+      "Furniture"
+    ],
+    "Family": [
+      "Limestone"
+    ]
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "Quantity": 3,
+        "ItemId": "Rock_Lime_Cobble"
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Categories": [
+          "Limestone"
+        ],
+        "Id": "Stone_Carving"
+      }
+    ]
+  },
+  "Scale": 0.6
+}

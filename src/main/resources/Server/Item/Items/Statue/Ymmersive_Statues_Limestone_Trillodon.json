@@ -1,0 +1,83 @@
+{
+  "TranslationProperties": {
+    "Name": "items.Ymmersive_Statues_Limestone_Trillodon.name",
+    "Description": "items.{style}.description"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Structural"
+  ],
+  "Set": "Furniture_Statue",
+  "IconProperties": {
+    "Scale": 0.23557745065694616,
+    "Rotation": [
+      22,
+      43,
+      18
+    ],
+    "Translation": [
+      43.254833995939045,
+      -28.027652067406553
+    ]
+  },
+  "BlockType": {
+    "BlockParticleSetId": "Stone",
+    "BlockSoundSetId": "Stone",
+    "CustomModel": "Blocks/Furniture/Ymmersive_Statues_Limestone_Trillodon.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/Furniture/Ymmersive_Statues_Limestone_Trillodon.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "InteractionHint": "items.Ymmersive_Statues_Limestone_Trillodon.name",
+    "Flags": {
+      "IsUsable": true
+    },
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "HitboxType": "Ymmersive_Statues_Limestone_Trillodon",
+    "Material": "Solid",
+    "Opacity": "Cutout",
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "VariantRotation": "NESW",
+    "ParticleColor": "#2e3742"
+  },
+  "Icon": "Icons/ItemsGenerated/Statue/Ymmersive_Statues_Limestone_Trillodon.png",
+  "Tags": {
+    "Type": [
+      "Furniture"
+    ],
+    "Family": [
+      "Limestone"
+    ]
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "Quantity": 10,
+        "ItemId": "Rock_Lime_Cobble"
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Categories": [
+          "Limestone"
+        ],
+        "Id": "Stone_Carving"
+      }
+    ]
+  },
+  "Scale": 0.6
+}

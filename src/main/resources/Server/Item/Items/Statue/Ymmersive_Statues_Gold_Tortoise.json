@@ -1,0 +1,83 @@
+{
+  "TranslationProperties": {
+    "Name": "items.Ymmersive_Statues_Gold_Tortoise.name",
+    "Description": "items.{style}.description"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Structural"
+  ],
+  "Set": "Furniture_Statue",
+  "IconProperties": {
+    "Scale": 0.5125753189979487,
+    "Rotation": [
+      22,
+      43,
+      18
+    ],
+    "Translation": [
+      20.627416997969522,
+      -16.63608326125813
+    ]
+  },
+  "BlockType": {
+    "BlockParticleSetId": "Stone",
+    "BlockSoundSetId": "Stone",
+    "CustomModel": "Blocks/Furniture/Ymmersive_Statues_Gold_Tortoise.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/Furniture/Ymmersive_Statues_Gold_Tortoise.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "InteractionHint": "items.Ymmersive_Statues_Gold_Tortoise.name",
+    "Flags": {
+      "IsUsable": true
+    },
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "HitboxType": "Ymmersive_Statues_Gold_Tortoise",
+    "Material": "Solid",
+    "Opacity": "Cutout",
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "VariantRotation": "NESW",
+    "ParticleColor": "#2e3742"
+  },
+  "Icon": "Icons/ItemsGenerated/Statue/Ymmersive_Statues_Gold_Tortoise.png",
+  "Tags": {
+    "Type": [
+      "Furniture"
+    ],
+    "Family": [
+      "Gold"
+    ]
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "Quantity": 2,
+        "ItemId": "Ingredient_Bar_Gold"
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Categories": [
+          "Gold"
+        ],
+        "Id": "Stone_Carving"
+      }
+    ]
+  },
+  "Scale": 0.6
+}

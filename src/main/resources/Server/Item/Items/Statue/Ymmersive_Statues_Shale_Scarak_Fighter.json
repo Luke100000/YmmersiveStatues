@@ -1,0 +1,83 @@
+{
+  "TranslationProperties": {
+    "Name": "items.Ymmersive_Statues_Shale_Scarak_Fighter.name",
+    "Description": "items.{style}.description"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Structural"
+  ],
+  "Set": "Furniture_Statue",
+  "IconProperties": {
+    "Scale": 0.27441354504139537,
+    "Rotation": [
+      22,
+      43,
+      18
+    ],
+    "Translation": [
+      43.254833995939045,
+      -26.941927568376205
+    ]
+  },
+  "BlockType": {
+    "BlockParticleSetId": "Stone",
+    "BlockSoundSetId": "Stone",
+    "CustomModel": "Blocks/Furniture/Ymmersive_Statues_Shale_Scarak_Fighter.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/Furniture/Ymmersive_Statues_Shale_Scarak_Fighter.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "InteractionHint": "items.Ymmersive_Statues_Shale_Scarak_Fighter.name",
+    "Flags": {
+      "IsUsable": true
+    },
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "HitboxType": "Ymmersive_Statues_Shale_Scarak_Fighter",
+    "Material": "Solid",
+    "Opacity": "Cutout",
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "VariantRotation": "NESW",
+    "ParticleColor": "#2e3742"
+  },
+  "Icon": "Icons/ItemsGenerated/Statue/Ymmersive_Statues_Shale_Scarak_Fighter.png",
+  "Tags": {
+    "Type": [
+      "Furniture"
+    ],
+    "Family": [
+      "Shale"
+    ]
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "Quantity": 8,
+        "ItemId": "Rock_Shale"
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Categories": [
+          "Shale"
+        ],
+        "Id": "Stone_Carving"
+      }
+    ]
+  },
+  "Scale": 0.6
+}

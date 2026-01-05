@@ -1,0 +1,83 @@
+{
+  "TranslationProperties": {
+    "Name": "items.Ymmersive_Statues_Mossy_Ghoul.name",
+    "Description": "items.{style}.description"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Structural"
+  ],
+  "Set": "Furniture_Statue",
+  "IconProperties": {
+    "Scale": 0.4656013926905861,
+    "Rotation": [
+      22,
+      43,
+      18
+    ],
+    "Translation": [
+      20.627416997969522,
+      -21.974654198975138
+    ]
+  },
+  "BlockType": {
+    "BlockParticleSetId": "Stone",
+    "BlockSoundSetId": "Stone",
+    "CustomModel": "Blocks/Furniture/Ymmersive_Statues_Mossy_Ghoul.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/Furniture/Ymmersive_Statues_Mossy_Ghoul.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "InteractionHint": "items.Ymmersive_Statues_Mossy_Ghoul.name",
+    "Flags": {
+      "IsUsable": true
+    },
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "HitboxType": "Ymmersive_Statues_Mossy_Ghoul",
+    "Material": "Solid",
+    "Opacity": "Cutout",
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "VariantRotation": "NESW",
+    "ParticleColor": "#2e3742"
+  },
+  "Icon": "Icons/ItemsGenerated/Statue/Ymmersive_Statues_Mossy_Ghoul.png",
+  "Tags": {
+    "Type": [
+      "Furniture"
+    ],
+    "Family": [
+      "Mossy"
+    ]
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "Quantity": 5,
+        "ItemId": "Rock_Stone_Mossy"
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Categories": [
+          "Mossy"
+        ],
+        "Id": "Stone_Carving"
+      }
+    ]
+  },
+  "Scale": 0.6
+}

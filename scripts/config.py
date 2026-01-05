@@ -22,12 +22,12 @@ class StyleConfig(BaseModel):
 
     resource: str = "Rock"
     resource_type: str = "ResourceTypeId"
-    resource_factor: float = 8.0
+    resource_factor: float = 4.0
 
     socket_shape: str = "stone"
     socket_material: str = "base/mossy.png"
     socket_contrast: float = 0.25
-    socket_brightness: float = -0.075
+    socket_brightness: float = -0.05
 
 
 class SocketConfig(BaseModel):

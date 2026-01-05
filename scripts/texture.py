@@ -141,10 +141,36 @@ def generate_image(
                 if "shadingMode" in shape:
                     del shape["shadingMode"]
 
-                if config.z_fights:
-                    shape["stretch"]["x"] += random.random() * 0.005
-                    shape["stretch"]["y"] += random.random() * 0.005
-                    shape["stretch"]["z"] += random.random() * 0.005
+                shape["stretch"]["x"] += random.random() * (
+                    0.01 if config.z_fights else 0.001
+                )
+                shape["stretch"]["y"] += random.random() * (
+                    0.01 if config.z_fights else 0.001
+                )
+                shape["stretch"]["z"] += random.random() * (
+                    0.01 if config.z_fights else 0.001
+                )
+                node["position"]["x"] += (random.random() - 0.5) * (
+                    0.1 if config.z_fights else 0.01
+                )
+                node["position"]["y"] += (random.random() - 0.5) * (
+                    0.1 if config.z_fights else 0.01
+                )
+                node["position"]["z"] += (random.random() - 0.5) * (
+                    0.1 if config.z_fights else 0.01
+                )
+                node["orientation"]["w"] += (random.random() - 0.5) * (
+                    0.01 if config.z_fights else 0.001
+                )
+                node["orientation"]["x"] += (random.random() - 0.5) * (
+                    0.01 if config.z_fights else 0.001
+                )
+                node["orientation"]["y"] += (random.random() - 0.5) * (
+                    0.01 if config.z_fights else 0.001
+                )
+                node["orientation"]["z"] += (random.random() - 0.5) * (
+                    0.01 if config.z_fights else 0.001
+                )
 
                 size = shape["settings"]["size"]
                 for side, face in shape["textureLayout"].items():
@@ -170,9 +196,6 @@ def generate_image(
 
                         if mode == "base":
                             base_color[y0:y1, x0:x1, :3] = fragment_rgb
-                            base_color[y0:y1, x0:x1, 3] = (
-                                fragment[:, :, 3] > 100
-                            ) * 255
                         elif mode == "add":
                             base_color[y0:y1, x0:x1, :3] += fragment_rgb * opacity
                         elif mode == "multiply":
@@ -234,5 +257,7 @@ def generate_image(
     gain = lightness * style.strength
     lit = np.exp(log_x + gain[..., None])
     base_color[:, :, :3] = np.clip(lit * 255, 0, 255).astype(np.uint8)
+
+    base_color[:, :, 3] = (image[:, :, 3] > 100) * 255
 
     return Image.fromarray(base_color)
