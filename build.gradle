@@ -107,10 +107,11 @@ tasks.register('publish') {
             throw new GradleException("Environment variable API_TOKEN is not set")
         }
 
+        def displayName = providers.gradleProperty("displayName").get()
         def metadata = [
                 changelog    : new File("${project.projectDir}/changelog.md").text,
                 changelogType: "markdown",
-                "displayName": "${project.property('displayName')} - ${project.version}",
+                "displayName": "${displayName} - ${project.version}",
                 releaseType  : "alpha"
         ]
 
@@ -130,7 +131,7 @@ tasks.register('publish') {
                                 .get()
                                 .asFile,
                         ContentType.APPLICATION_OCTET_STREAM,
-                        "${project.name}.jar"
+                        "${archiveBaseName}-${project.version}.jar"
                 )
                 .build()
 
