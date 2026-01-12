@@ -89,7 +89,6 @@ tasks.register('run', JavaExec) {
     args = [
             '--allow-op',
             '--disable-sentry',
-            '--auth-mode=insecure',
             "--assets=$hytaleBasePath/install/release/package/game/latest/Assets.zip",
             "--mods=${modsPath}"
     ]

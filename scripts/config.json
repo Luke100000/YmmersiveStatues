@@ -20,7 +20,7 @@
       "texture": "base/gold.png",
       "overlays": [
       ],
-      "strength": 0.075,
+      "strength": 0.1,
       "adjustment": 0.8,
       "contrast": 6.0,
       "softness": 2.0,
@@ -29,7 +29,7 @@
       "resource_factor": 1.0,
       "socket_shape": "step",
       "socket_material": "base/gold.png",
-      "socket_contrast": 0.15,
+      "socket_contrast": 0.1,
       "socket_brightness": 0
     },
     {
@@ -117,16 +117,6 @@
       "overlays": [
         {
           "texture": "overlays/small_cracks.png",
-          "blendMode": "multiply",
-          "opacity": 0.1
-        },
-        {
-          "texture": "overlays/small_cracks.png",
-          "blendMode": "multiply",
-          "opacity": 0.1
-        },
-        {
-          "texture": "overlays/medium_cracks.png",
           "blendMode": "multiply",
           "opacity": 0.1
         },

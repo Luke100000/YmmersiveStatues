@@ -11,7 +11,7 @@ from tqdm.auto import tqdm
 from animations import load_animation, apply_animation
 from bounding_box import generate_hitbox, append_box_nodes, get_volume, get_bounding_box
 from config import load_config
-from merge import merge_models
+from merge import merge_models, fix_size
 from texture import generate_image, resize_tiled_texture
 
 
@@ -176,6 +176,8 @@ def main(debug: bool = False, filter_quads: bool = False, clear: bool = False):
                 )
 
                 model, texture = merge_models(model, socket, texture, socket_texture)
+
+            texture = fix_size(texture)
 
             # Generate hitbox
             boxes = generate_hitbox(model)
