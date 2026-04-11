@@ -1,3 +1,7 @@
+# 1.0.3
+
+* Updated to patch 4
+
 # 1.0.2
 
 * Updated to 2026.02.17-255364b8e
